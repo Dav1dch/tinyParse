@@ -1,0 +1,29 @@
+
+TINY COMPILATION: ./temp.out
+
+>>> Syntax error at line 13: unexpected token -> EOF
+
+>>> Syntax error at line 14: unexpected token -> EOF
+      
+Syntax tree:
+  Read: x
+  If
+    Op: <
+      Const: 0
+      Id: x
+    Assign to: fact
+      Const: 1
+    Dowhile
+      Assign to: fact
+        Op: *
+          Id: fact
+          Id: x
+      Assign to: x
+        Op: -
+          Id: x
+          Const: 1
+      Op: <
+        Const: 0
+        Id: x
+    Write
+      Id: fact
