@@ -86,6 +86,8 @@ TreeNode* statement(void)
 	case WHILE: t = while_stmt(); break;
 	case DO: t = dowhile_stmt(); break;
 	case FOR: t = for_stmt(); break;
+	case ENDDO: token = getToken(); t = statement(); break;
+	case ENDWHILE: token = getToken(); t = statement(); break;
 	default: syntaxError("unexpected token -> ");
 		printToken(token, tokenString);
 		token = getToken();
@@ -135,7 +137,6 @@ TreeNode* if_stmt(void) {
 			t->child[2] = stmt_sequence();
 		}
 	}
-	match(END);
 	return t;
 
 }
@@ -281,7 +282,6 @@ TreeNode* while_stmt(void)
 	{
 		t->child[1] = stmt_sequence();
 	}
-	match(ENDWHILE);
 	return t;
 }
 

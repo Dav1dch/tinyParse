@@ -1,10 +1,8 @@
 
 TINY COMPILATION: ./temp.out
 
->>> Syntax error at line 13: unexpected token -> EOF
+>>> Syntax error at line 7: Code ends before file
 
->>> Syntax error at line 14: unexpected token -> EOF
-      
 Syntax tree:
   Read: x
   If
@@ -13,7 +11,10 @@ Syntax tree:
       Id: x
     Assign to: fact
       Const: 1
-    Dowhile
+    While
+      Op: <
+        Const: 0
+        Id: x
       Assign to: fact
         Op: *
           Id: fact
@@ -22,8 +23,3 @@ Syntax tree:
         Op: -
           Id: x
           Const: 1
-      Op: <
-        Const: 0
-        Id: x
-    Write
-      Id: fact
